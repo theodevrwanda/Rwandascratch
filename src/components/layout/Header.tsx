@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { Menu, X, Code, LogIn, MessageCircle } from 'lucide-react'; // Import MessageCircle icon
-import { LoginModal } from '@/components/auth/LoginModal';
-import { UserMenu } from '@/components/auth/UserMenu';
-import { useAuth } from '@/contexts/AuthContext';
+import { Menu, X, Code, MessageCircle } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -15,14 +12,13 @@ const navigation = [
   { name: 'Events', href: '/events' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Chat', href: '/chat', isMobileOnly: true }, // Add the Chat link here
+  { name: 'Chat', href: '/chat', isMobileOnly: true },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { userData } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +49,7 @@ export function Header() {
             className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
           >
             <div className="bg-gradient-primary p-2 rounded-xl">
-              <Code className="h-6 w-6 text-white" />
+              <img src="/rwandascratch.png" width={20} alt="rwandascratch business logo software developemt , rwandascratch logo , theodev rwanda business logo rwanda developmemt software developement compnay in rwanda" />
             </div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-gradient">RwandaScratch</span>
@@ -64,7 +60,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navigation
-              .filter(item => !item.isMobileOnly) // Filter out mobile-only links for desktop
+              .filter(item => !item.isMobileOnly)
               .map((item) => (
                 <Link
                   key={item.name}
@@ -86,20 +82,11 @@ export function Header() {
             <Button variant="outline" size="sm" asChild>
               <Link to="/request-website">Request Website</Link>
             </Button>
-            {userData ? (
-              <UserMenu />
-            ) : (
-              <LoginModal>
-                <Button variant="hero" size="sm">
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
-              </LoginModal>
-            )}
             <Button variant="hero" size="sm" asChild>
-                <Link to="/chat">
-                  <MessageCircle className="h-4 w-4" />
-                </Link>
+              <Link to="/chat">
+                <MessageCircle className="h-4 w-4 mr-2" />
+                Chat
+              </Link>
             </Button>
           </div>
 
@@ -138,19 +125,12 @@ export function Header() {
                 <Button variant="outline" size="sm" className="w-full" asChild>
                   <Link to="/request-website">Request Website</Link>
                 </Button>
-                {userData ? (
-                  <div className="flex items-center space-x-2 p-2">
-                    <UserMenu />
-                    <span className="text-sm">{userData.displayName}</span>
-                  </div>
-                ) : (
-                  <LoginModal>
-                    <Button variant="hero" size="sm" className="w-full">
-                      <LogIn className="h-4 w-4 mr-2" />
-                      Login
-                    </Button>
-                  </LoginModal>
-                )}
+                <Button variant="hero" size="sm" className="w-full" asChild>
+                  <Link to="/chat">
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    Chat
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

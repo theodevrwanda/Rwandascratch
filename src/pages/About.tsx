@@ -1,32 +1,8 @@
 import React from 'react';
-import { Target, Eye, Heart, Users, Award } from 'lucide-react';
+import { Target, Eye, Heart, Users, Award, Quote, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import aboutBg from '@/assets/about-bg.jpg';
-
-const teamMembers = [
-  {
-    name: 'Theogene Iradukunda',
-    role: 'Founder & CEO',
-    location: 'Kigali, Rwanda',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    bio: 'Founder of RwandaScratch, Theogene is passionate about driving technological innovation in Rwanda through software development, graphic design, and networking solutions.',
-  },
-   {
-    name: 'Theogene Iradukunda',
-    role: 'Founder & CEO',
-    location: 'Kigali, Rwanda',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    bio: 'Founder of RwandaScratch, Theogene is passionate about driving technological innovation in Rwanda through software development, graphic design, and networking solutions.',
-  },
-   {
-    name: 'Theogene Iradukunda',
-    role: 'Founder & CEO',
-    location: 'Kigali, Rwanda',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    bio: 'Founder of RwandaScratch, Theogene is passionate about driving technological innovation in Rwanda through software development, graphic design, and networking solutions.',
-  }
-];
 
 const values = [
   {
@@ -53,15 +29,54 @@ const values = [
 
 const aboutData = {
   story: `
-    RwandaScratch was founded by Theogene Iradukunda in Kigali, Rwanda, with a vision to transform the tech landscape in Africa. Starting as a passion project to empower local businesses and communities, RwandaScratch has grown into a dynamic company offering software development, graphic design, software installations, and networking solutions. Our goal is to bridge the digital gap by providing innovative and accessible technology tailored to the needs of Rwandan and African markets. Contact us at theodevrwanda@gmail.com or +250 792 734 752 to collaborate!
+    RwandaScratch was founded by Theogene Iradukunda with a vision to transform how businesses operate through digital innovation. What began as a passion-driven initiative has grown into a technology company focused on helping businesses fully transition into the digital world. RwandaScratch builds custom software solutions, digital platforms, graphic designs, and reliable systems that allow businesses to manage their operations independently, efficiently, and securely.
+
+    We focus on enabling businesses to launch and run their own online services without relying on third-party platforms or external providers. By creating direct digital connections between businesses and their clients, we simplify daily operations, improve accessibility, and support long-term growth. RwandaScratch also collaborates with innovative developers and creators to build scalable, future-ready solutions that meet real-world business needs.
   `,
   mission: `
-    Our mission is to empower businesses and individuals in Rwanda and Africa with innovative software, stunning graphic designs, and reliable networking solutions, fostering growth and digital transformation.
+    Our mission is to transform business operations by making digital solutions accessible, independent, and easy to use. We empower businesses to own their technology, connect directly with their clients, simplify daily workflows, and operate more efficiently through innovative software and digital services.
   `,
   vision: `
-    We envision a digitally empowered Africa where RwandaScratch leads as a hub for cutting-edge technology, inspiring the next generation of innovators and creators.
+    Our vision is to build a digitally empowered ecosystem where businesses operate seamlessly online, technology is locally driven and globally competitive, and innovation thrives through collaboration with forward-thinking developers and creators.
   `,
 };
+
+// Updated testimonials with service type and project link
+const testimonials = [
+  {
+    name: 'Mr. Faustina',
+    role: 'Owner, Private Business',
+    serviceType: 'Business Management System',
+    link: 'https://pixelmartrw.pages.dev', 
+    content: 'RwandaScratch developed a comprehensive management system for my business. Managing products, branches, and employees has never been easier!',
+    avatar: '/faustin.jpg',
+  },
+  {
+    name: 'Open Future',
+    role: 'Savings Group for Students, Apeki Tumba TSS',
+    serviceType: 'Record Management System',
+    link: 'https://openfuture.pages.dev',
+    content: 'The digital savings management platform has transformed how we track monthly savings and manage our members. Simple and effective!',
+    avatar: '/openfuture.png',
+  },
+  {
+    name: 'Niyonsenga DieuMerci',
+    role: 'Web Designer & Software Developer',
+    serviceType: 'Personal Portfolio Website',
+    link: 'https://dieumerci.pages.dev',
+    content: 'RwandaScratch built a professional portfolio that perfectly showcases my skills and experience. The design is clean and fully functional.',
+    avatar: '/kate.jpeg',
+  },
+  // {
+  //   name: 'Jiridasee',
+  //   role: 'Owner, Mixed Shop',
+  //   serviceType: 'SmartStock Management System',
+  //   link: '/projects/jiridasee-smartstock',
+  //   content: 'SmartStock helps us manage different products and inventory seamlessly. It’s perfect for our mixed shop needs. Highly recommended!',
+  //   avatar: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=400&h=400&fit=crop&crop=face',
+  // },
+];
+
 
 export default function About() {
   return (
@@ -112,7 +127,7 @@ export default function About() {
             </div>
             <div className="animate-scale-in">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                src="/theodev.png"
                 alt="Team collaboration"
                 className="rounded-2xl shadow-2xl hover-lift"
               />
@@ -176,36 +191,67 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-20 bg-secondary/30">
+      {/* Testimonials Section (replaced Team) */}
+      <section className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Meet Our Team</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">What Our Clients Say</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              The passionate individuals driving innovation at RwandaScratch.
+              Real feedback from businesses we've helped grow through custom digital solutions.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={member.name}
-                className="bg-gradient-card p-6 rounded-2xl shadow-lg hover-lift animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                />
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                  <p className="text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{member.location}</p>
-                  <p className="text-muted-foreground">{member.bio}</p>
+
+          {/* Auto-scrolling carousel with pause on hover */}
+          <div className="overflow-hidden">
+            <div className="flex animate-scroll hover:pause-scroll gap-8">
+              {/* Duplicated for seamless infinite scroll */}
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="flex-none w-96 bg-gradient-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
+                >
+                  <Quote className="h-10 w-10 text-primary/20 mb-6" />
+                  <p className="text-lg text-muted-foreground mb-8 italic">"{testimonial.content}"</p>
+                  
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold">{testimonial.name}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      <p className="text-sm text-primary font-medium">{testimonial.serviceType}</p>
+                    </div>
+                  </div>
+                  
+                  {testimonial.link && (
+                    <Button variant="link" className="p-0 h-auto" asChild>
+                      <Link to={testimonial.link} className="flex items-center gap-2 text-primary">
+                        View Project <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  )}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          <style >{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-scroll {
+              display: flex;
+              width: max-content;
+              animation: scroll 40s linear infinite;
+            }
+            .hover\\:pause-scroll:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </div>
       </section>
 
@@ -214,7 +260,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Work With Us?</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Let's build something amazing together. Contact us at theodevrwanda@gmail.com or +250 792 734 752.
+            Let's build something amazing together
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="lg" asChild>

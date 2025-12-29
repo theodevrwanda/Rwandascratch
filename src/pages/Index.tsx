@@ -7,67 +7,68 @@ import heroBackground from '@/assets/hero-bg.jpg';
 
 const Index = () => {
   // Counter animations for stats
-  const projectsCount = useCountUpAnimation({ end: 20, suffix: '+' });
-  const studentsCount = useCountUpAnimation({ end: 150, suffix: '+' });
-  const clientsCount = useCountUpAnimation({ end: 50, suffix: '+' });
-  const experienceCount = useCountUpAnimation({ end: 2, suffix: '+' });
+  const projectsCount = useCountUpAnimation({ end: 6, suffix: '+' });
+  const studentsCount = useCountUpAnimation({ end: 32, suffix: '+' });
+  const clientsCount = useCountUpAnimation({ end: 20, suffix: '+' });
+  const experienceCount = useCountUpAnimation({ end: 3, suffix: '+' });
 
   return (
     <div className="min-h-screen">
-      {/* CROSS-REFERENCE: Theogene, this is the updated Index page for RwandaScratch, complementing the About (artifact_id: 7b8e4f2a-9c1d-4b7a-b2e3-5f6c8a7d3e2f), Projects (artifact_id: f8d7e6b5-3c2a-4e9b-9a1f-6d4c8b3e2a1d), Events (artifact_id: 9c3b2e4d-5a1f-4e8b-b7c2-6f4d8a3e2b1c), and Blog (artifact_id: a7b6c5d4-2e3f-4a9c-8b1e-7f5d9a2c3e4d) pages. */}
+
       
       {/* Hero Section */}
-      <section 
-        className="py-20 lg:py-32 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(109, 110, 111, 0) 0%, rgba(5, 24, 73, 0.3) 50%, rgba(2, 36, 102, 1) 100%), url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-        data-aos="zoom-in"
-        data-aos-duration="1200"
+<section 
+  className="py-20 lg:py-32 relative overflow-hidden"
+  style={{
+    backgroundImage: `linear-gradient(135deg, rgba(109, 110, 111, 0) 0%, rgba(5, 24, 73, 0.3) 50%, rgba(2, 36, 102, 1) 100%), url(${heroBackground})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed'
+  }}
+  data-aos="zoom-in"
+  data-aos-duration="1200"
+>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="text-center">
+      <h1 
+        className="text-4xl lg:text-7xl font-bold text-white mb-6"
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <h1 
-              className="text-4xl lg:text-7xl font-bold text-white mb-6"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              Building Rwanda’s
-              <span 
-                className="block text-gradient bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent"
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                Tech Future
-              </span>
-            </h1>
-            <p 
-              className="text-xl text-white/90 max-w-3xl mx-auto mb-8"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              RwandaScratch empowers businesses and youth with innovative software, graphic design, networking, digital marketing, and tech education.
-            </p>
-            <div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              data-aos="fade-up"
-              data-aos-delay="800"
-            >
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/request-website">
-                  Get Your Website <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button variant="glass" size="xl" asChild>
-                <Link to="/about">Learn More</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+        Take Your Business go
+        <span 
+          className="block text-gradient bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          Digital & Beyond
+        </span>
+      </h1>
+      <p 
+        className="text-xl text-white/90 max-w-3xl mx-auto mb-8"
+        data-aos="fade-up"
+        data-aos-delay="600"
+      >
+        Welcome to RwandaScratch — your partner in transforming ideas into smart, scalable, and cutting-edge tech solutions. From innovative software to professional design, digital marketing, and tech education, we help businesses thrive in the digital era.
+      </p>
+      <div 
+        className="flex flex-col sm:flex-row gap-4 justify-center"
+        data-aos="fade-up"
+        data-aos-delay="800"
+      >
+        <Button variant="hero" size="xl" asChild>
+          <Link to="/request-website">
+            Get Started <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </Button>
+        <Button variant="glass" size="xl" asChild>
+          <Link to="/about">Learn More</Link>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Features Section */}
       <section className="py-20" data-aos="fade-up" data-aos-duration="1000">
@@ -91,7 +92,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
               { icon: Globe, title: 'Web Development', desc: 'Build modern, responsive websites and web apps.' },
-              { icon: Smartphone, title: 'Mobile Apps', desc: 'Create cross-platform mobile solutions with Flutter.' },
+              { icon: Smartphone, title: 'Mobile Apps', desc: 'Create cross-platform mobile solutions ' },
               { icon: Code, title: 'Programming Education', desc: 'Teach coding through hands-on bootcamps.' },
               { icon: Palette, title: 'Graphic Design', desc: 'Design stunning UI/UX and branding assets.' },
               { icon: Network, title: 'Networking Solutions', desc: 'Implement secure, scalable network systems.' },
@@ -178,7 +179,7 @@ const Index = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Contact Theogene at theodevrwanda@gmail.com or +250 792 734 752 to bring your tech vision to life with RwandaScratch’s expanded services.
+            Contact us at rwandascratch@gmail.com or +250 792 734 752 to bring your tech vision to life with RwandaScratch’s expanded services.
           </p>
           <div 
             className="flex flex-col sm:flex-row gap-4 justify-center"

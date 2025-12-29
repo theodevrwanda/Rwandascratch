@@ -1,62 +1,68 @@
 import React from 'react';
-import { ExternalLink, Github, Smartphone, Globe, Code, Play } from 'lucide-react';
+import { ExternalLink, Smartphone, Globe, Code, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import projectsBg from '@/assets/projects-bg.jpg';
 
 const projects = [
   {
-    title: 'RwandaShop',
-    description: 'An e-commerce platform for Rwandan businesses to sell products online with secure payments and intuitive design.',
+    title: 'PixelMart',
+    description: 'A smart inventory and stock management system for Mr. Faustina, focused on electronics and LCD products, with real-time inventory tracking and branch management.',
+    techStack: ['React', 'Node.js', 'Firebase', 'Tailwind CSS'],
+    image: '/pixelmart.png',
+    liveDemo: 'https://pixelmartrw.pages.dev',
+    category: 'web',
+    client: 'Mr. Faustina',
+    price: '500,000 RWF',
+  },
+  {
+    title: 'SmartStock',
+    description: 'A flexible stock management system developed for Jiridasee’s mixed shop, supporting multiple product categories, sales tracking, and inventory monitoring.',
     techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+    image: '/smartstock.png',
     liveDemo: '#',
-    github: '#',
     category: 'web',
+    client: 'Jiridasee',
+    price: '250,000 RWF',
   },
   {
-    title: 'KigaliConnect',
-    description: 'A web platform connecting local communities with services, featuring real-time networking and user-friendly interfaces.',
-    techStack: ['Next.js', 'Firebase', 'TypeScript', 'Bootstrap'],
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
-    liveDemo: '#',
-    github: '#',
+    title: 'Open Future Savings System',
+    description: 'A digital record management platform for the Open Future savings group at Apeki Tumba TSS, enabling monthly savings tracking and secure member management.',
+    techStack: ['React', 'Firebase', 'TypeScript', 'Tailwind CSS'],
+    image: '/openfutur.png',
+    liveDemo: 'https://openfuture.pages.dev',
     category: 'web',
+    client: 'Open Future',
+    price: '1,000 RWF (one-time joining fee)',
   },
   {
-    title: 'RwandanLearn',
-    description: 'An educational platform offering coding tutorials and graphic design courses tailored for Rwandan youth.',
-    techStack: ['Vue.js', 'Python', 'PostgreSQL', 'Tailwind CSS'],
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop',
+    title: 'InStore',
+    description: 'A retail management system tailored for shops to track products, sales, and customer data efficiently in a digital environment.',
+    techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    image: '/instore.png',
     liveDemo: '#',
-    github: '#',
     category: 'web',
+    client: 'InStore',
+    price: 'Custom pricing',
   },
   {
-    title: 'RwandaScratch Mobile',
-    description: 'A mobile app for accessing RwandaScratch’s services, including project management and client communication.',
-    techStack: ['Flutter', 'Dart', 'Firebase', 'REST API'],
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop',
+    title: 'StockWise',
+    description: 'A stock management system designed for mixed shops to manage inventory, sales, and product categories with a simple and user-friendly interface.',
+    techStack: ['React', 'Node.js', 'Firebase', 'Tailwind CSS'],
+    image: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?w=600&h=400&fit=crop',
     liveDemo: '#',
-    github: '#',
-    category: 'mobile',
+    category: 'web',
+    client: 'Mixed Shops',
+    price: 'Custom pricing',
   },
   {
-    title: 'KigaliTransit',
-    description: 'A mobile app for real-time public transport tracking in Kigali, with networking for seamless updates.',
-    techStack: ['React Native', 'Node.js', 'MongoDB', 'Google Maps'],
-    image: 'https://images.unsplash.com/photo-1506521781263-d8422e7f50f4?w=600&h=400&fit=crop',
-    liveDemo: '#',
-    github: '#',
-    category: 'mobile',
-  },
-  {
-    title: 'RwandaHealth',
-    description: 'A health app connecting users to local clinics with appointment booking and health tips.',
-    techStack: ['Flutter', 'Dart', 'PostgreSQL', 'GraphQL'],
-    image: 'https://images.unsplash.com/photo-1576091160399-1123a9de18fa?w=600&h=400&fit=crop',
-    liveDemo: '#',
-    github: '#',
-    category: 'mobile',
+    title: 'Dieumerci Portfolio',
+    description: 'A portfolio website developed for Dieumerci, showcasing their projects, skills, and company information in a modern, user-friendly design.',
+    techStack: ['React', 'Node.js', 'Tailwind CSS'],
+    image: '/dieumerci.png',
+    liveDemo: 'https://dieumerci.pages.dev',
+    category: 'web',
+    client: 'Self / Portfolio',
+    price: '50,0000 Rwf',
   },
 ];
 
@@ -169,19 +175,24 @@ export default function Projects() {
 
                     {/* Action Buttons */}
                     <div className="flex gap-3">
-                      {project.liveDemo && (
+                      {project.liveDemo && project.liveDemo !== '#' && (
                         <Button variant="default" size="sm" className="flex-1" asChild>
-                          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+                          <a 
+                            href={project.liveDemo} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label={`View live demo of ${project.title} (opens in new tab)`}
+                          >
                             <Play className="h-4 w-4 mr-2" />
                             Live Demo
+                            <ExternalLink className="h-3 w-3 ml-1 opacity-70" />
                           </a>
                         </Button>
                       )}
-                      {project.github && (
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4" />
-                          </a>
+                      {project.liveDemo && project.liveDemo === '#' && (
+                        <Button variant="secondary" size="sm" className="flex-1" disabled>
+                          <Play className="h-4 w-4 mr-2" />
+                          Coming Soon
                         </Button>
                       )}
                     </div>
@@ -204,19 +215,19 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div className="animate-fade-in">
-              <div className="text-4xl font-bold text-primary mb-2">20+</div>
+              <div className="text-4xl font-bold text-primary mb-2">6+</div>
               <p className="text-muted-foreground">Projects Completed</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-4xl font-bold text-primary mb-2">20+</div>
               <p className="text-muted-foreground">Happy Clients</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-4xl font-bold text-primary mb-2">15+</div>
+              <div className="text-4xl font-bold text-primary mb-2">50+</div>
               <p className="text-muted-foreground">Technologies Used</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl font-bold text-primary mb-2">2+</div>
+              <div className="text-4xl font-bold text-primary mb-2">3+</div>
               <p className="text-muted-foreground">Years Experience</p>
             </div>
           </div>

@@ -1,109 +1,59 @@
 import React from 'react';
-import { Calendar, User, Clock, ArrowRight, BookOpen } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Calendar, User, Clock, BookOpen } from 'lucide-react';
 import { EmptyState } from '@/components/EmptyState';
 
 const blogPosts = [
-  // Technology Category
+  // Business / Branding Category
   {
-    title: 'Rwanda’s Tech Future: Trends in Software and Networking',
-    excerpt: 'Discover how software development and networking solutions are shaping Rwanda’s digital landscape.',
+    title: 'Let’s Your Business Have a Brand with Us',
+    excerpt: 'Learn how RwandaScratch helps businesses build strong, recognizable brands that connect with customers and drive growth. This post covers the key steps to create a memorable brand identity, from logo design and color psychology to consistent messaging across digital platforms. We’ll also share real examples from our work with local businesses in Kigali.',
     author: 'Theogene Iradukunda',
-    date: '2025-08-10',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=300&fit=crop',
-    category: 'Technology',
-    link: '#',
-  },
-  {
-    title: 'The Role of Cloud Computing in African Businesses',
-    excerpt: 'Exploring how cloud solutions enhance efficiency for Rwandan enterprises.',
-    author: 'Isezerano Roger',
-    date: '2025-07-20',
-    readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=300&fit=crop',
-    category: 'Technology',
-    link: '#',
-  },
-  {
-    title: 'Cybersecurity Essentials for Rwanda’s Tech Ecosystem',
-    excerpt: 'Key practices to secure software and networks in Rwanda’s growing tech scene.',
-    author: 'Theogene Iradukunda',
-    date: '2025-06-15',
+    date: '2025-12-29',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1563986768494-4dee9b6b6774?w=600&h=300&fit=crop',
-    category: 'Technology',
+    image: '/theodev.png',
+    category: 'Business',
     link: '#',
   },
-  // Development Category
+    // PixelMart Launch Post
   {
-    title: 'Building Full-Stack Apps with React and Node.js',
-    excerpt: 'Best practices for creating scalable web applications using modern JavaScript frameworks.',
-    author: 'Claudine Uwase',
-    date: '2025-08-05',
-    readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=300&fit=crop',
-    category: 'Development',
-    link: '#',
-  },
-  {
-    title: 'Designing Mobile Apps with Flutter for Rwanda',
-    excerpt: 'How RwandaScratch builds cross-platform mobile apps with Flutter and Dart.',
-    author: 'Didier Niyonzima',
-    date: '2025-07-10',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=300&fit=crop',
-    category: 'Development',
-    link: '#',
-  },
-  {
-    title: 'Optimizing UI/UX with Tailwind CSS',
-    excerpt: 'Tips for creating stunning, user-friendly interfaces for web applications.',
-    author: 'Aline Ingabire',
-    date: '2025-06-20',
-    readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1610878180933-123728745d22?w=600&h=300&fit=crop',
-    category: 'Development',
-    link: '#',
-  },
-  // Education Category
-  {
-    title: 'Empowering Rwandan Youth Through Coding Bootcamps',
-    excerpt: 'How RwandaScratch’s training programs are building the next generation of tech leaders.',
+    title: 'PixelMart Website Launch',
+    excerpt: 'Announcing the official launch of PixelMart, a smart inventory and stock management system for Mr. Faustina’s electronics and LCD business. Discover the features and benefits that make PixelMart a must-have for retail management.',
     author: 'Theogene Iradukunda',
-    date: '2025-08-15',
+    date: '2025-12-26',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=300&fit=crop',
-    category: 'Education',
+    image: '/blog1.png',
+    category: 'Product Launch',
     link: '#',
   },
+  // Digital Marketing Post
   {
-    title: 'Teaching Graphic Design to Rwandan Students',
-    excerpt: 'RwandaScratch’s approach to fostering creativity through design education.',
-    author: 'Aline Ingabire',
-    date: '2025-07-15',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=300&fit=crop',
-    category: 'Education',
-    link: '#',
-  },
-  {
-    title: 'Bridging the Digital Skills Gap in Rwanda',
-    excerpt: 'Strategies for expanding tech education across Rwandan communities.',
+    title: 'Digital Marketing Strategies for Growing Your Business',
+    excerpt: 'Explore effective digital marketing strategies, including social media campaigns, SEO optimization, and email marketing, to expand your business reach and increase engagement with your audience.',
     author: 'Theogene Iradukunda',
-    date: '2025-06-10',
-    readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=300&fit=crop',
-    category: 'Education',
+    date: '2025-12-30',
+    readTime: '6 min read',
+    image: '/blog2.png',
+    category: 'Marketing',
     link: '#',
   },
+  // Mental Health / Lifestyle Post
+  {
+    title: 'It’s Okay to Take a Break',
+    excerpt: 'Learn the importance of taking breaks to recharge your mind and boost productivity. This post highlights techniques for managing stress, avoiding burnout, and maintaining a healthy work-life balance.',
+    author: 'Theogene Iradukunda',
+    date: '2025-12-31',
+    readTime: '4 min read',
+    image: '/blog3.png',
+    category: 'Lifestyle',
+    link: '#',
+  },
+
 ];
+
 
 export default function Blog() {
   return (
     <div className="min-h-screen">
-      {/* CROSS-REFERENCE: Theogene, this is the Blog page for RwandaScratch, complementing the About (artifact_id: 7b8e4f2a-9c1d-4b7a-b2e3-5f6c8a7d3e2f), Projects (artifact_id: f8d7e6b5-3c2a-4e9b-9a1f-6d4c8b3e2a1d), and Events (artifact_id: 9c3b2e4d-5a1f-4e8b-b7c2-6f4d8a3e2b1c) pages. */}
-      
       {/* Hero Section */}
       <section className="hero-bg py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -115,13 +65,13 @@ export default function Blog() {
           </p>
         </div>
       </section>
-      
+
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {blogPosts.length === 0 ? (
             <EmptyState
               icon={BookOpen}
-              title="No Blog Posts"
+              title="No Blog Posts Yet"
               description="RwandaScratch is crafting new content on tech and innovation. Check back soon!"
             />
           ) : (
@@ -129,17 +79,23 @@ export default function Blog() {
               {blogPosts.map((post, index) => (
                 <article
                   key={post.title}
-                  className="bg-gradient-card rounded-2xl shadow-lg overflow-hidden hover-lift animate-fade-in"
+                  className="bg-gradient-card rounded-2xl shadow-lg overflow-hidden hover-lift animate-fade-in flex flex-col"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
-                  <div className="p-6">
-                    <span className="px-3 py-1 bg-primary text-primary-foreground text-xs rounded-full">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-6 flex flex-col flex-grow">
+                    <span className="px-3 py-1 bg-primary text-primary-foreground text-xs rounded-full inline-block mb-4">
                       {post.category}
                     </span>
-                    <h2 className="text-xl font-bold mt-4 mb-3">{post.title}</h2>
-                    <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                    <h2 className="text-xl font-bold mb-3">{post.title}</h2>
+                    <p className="text-muted-foreground mb-6 flex-grow">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between text-sm text-muted-foreground mt-auto">
                       <div className="flex items-center">
                         <User className="h-4 w-4 mr-1" />
                         {post.author}
@@ -153,11 +109,6 @@ export default function Blog() {
                         {post.readTime}
                       </div>
                     </div>
-                    <Button variant="outline" className="w-full" asChild>
-                      <a href={post.link}>
-                        Read More <ArrowRight className="h-4 w-4 ml-2" />
-                      </a>
-                    </Button>
                   </div>
                 </article>
               ))}
@@ -173,9 +124,9 @@ export default function Blog() {
           <p className="text-xl text-white/90 mb-8">
             Share your tech insights with RwandaScratch! Contact Theogene at theodevrwanda@gmail.com or +250 792 734 752.
           </p>
-          <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
-            <a href="/contact">Get in Touch</a>
-          </Button>
+          <button className="px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-white/90">
+            Get in Touch
+          </button>
         </div>
       </section>
     </div>

@@ -31,11 +31,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: 'Facebook', href: '#', icon: Facebook },
-  { name: 'Twitter', href: '#', icon: Twitter },
-  { name: 'Instagram', href: '#', icon: Instagram },
-  { name: 'LinkedIn', href: '#', icon: Linkedin },
-  { name: 'GitHub', href: '#', icon: Github },
+  { name: 'Twitter', href: 'https:///www.x.com/theo_dev_rw', icon: Twitter },
+  { name: 'Instagram', href: 'https://www.instagram.com/rwandascratch/', icon: Instagram },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/theogene-iradukunda-88b07a381/', icon: Linkedin },
+  { name: 'GitHub', href: 'https://github.com/theodevrwanda', icon: Github },
 ];
 
 export function Footer() {
@@ -49,7 +48,7 @@ export function Footer() {
             <div className="lg:col-span-2">
               <Link to="/" className="flex items-center space-x-2 mb-4">
                 <div className="bg-gradient-primary p-2 rounded-xl">
-                  <Code className="h-6 w-6 text-white" />
+                  <img src="/rwandascratch.png" width={20} alt="rwandascratch business logo software developemt , rwandascratch logo , theodev rwanda business logo rwanda developmemt software developement compnay in rwanda" />
                 </div>
                 <div>
                   <span className="text-xl font-bold text-gradient">RwandaScratch</span>
@@ -69,11 +68,11 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3 text-sm">
                   <Phone className="h-4 w-4 text-primary" />
-                  <span>+250 788 123 456</span>
+                  <span>+250 792 734 752</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm">
                   <Mail className="h-4 w-4 text-primary" />
-                  <span>hello@rwandascratch.com</span>
+                  <span>rwandascratch@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -136,7 +135,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="py-8 border-t border-border/50">
+        {/* <div className="py-8 border-t border-border/50">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="text-center lg:text-left">
               <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
@@ -151,7 +150,7 @@ export function Footer() {
               <Button variant="default">Subscribe</Button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Section */}
         <div className="py-6 border-t border-border/50">

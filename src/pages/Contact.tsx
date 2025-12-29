@@ -26,7 +26,7 @@ export default function Contact() {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'hello@rwandascratch.com'
+        to_email: 'theodevrwanda@gmail.com'
       });
 
       // Save to Firebase

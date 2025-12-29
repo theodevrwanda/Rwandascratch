@@ -1,83 +1,61 @@
 import React from 'react';
-import { Calendar, MapPin, Clock, Users, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Calendar, MapPin, Users } from 'lucide-react';
 import { EmptyState } from '@/components/EmptyState';
 
 const upcomingEvents = [
   {
-    title: 'RwandaScratch Coding Bootcamp',
-    date: '2025-10-15',
-    time: '09:00 - 17:00',
-    location: 'kLab, Kigali',
-    attendees: 40,
-    maxAttendees: 50,
-    description: 'Learn full-stack development with React, Node.js, and MongoDB, led by RwandaScratch experts.',
-    image: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=300&fit=crop',
-    registrationLink: '#',
-    price: 'Free',
+    title: 'InStore Release',
+    date: '2026-01-15',
+    location: 'Kigali, Rwanda',
+    description: 'Official launch of InStore, a retail management system to efficiently track products, sales, and customer data.',
+    image: '/instore.png',
     authors: ['Theogene Iradukunda'],
   },
   {
-    title: 'Graphic Design Masterclass',
-    date: '2025-11-10',
-    time: '10:00 - 16:00',
-    location: 'University of Rwanda, Kigali',
-    attendees: 30,
-    maxAttendees: 40,
-    description: 'Master UI/UX design and graphic creation with tools like Figma and Adobe Creative Suite.',
-    image: 'https://images.unsplash.com/photo-1610878180933-123728745d22?w=600&h=300&fit=crop',
-    registrationLink: '#',
-    price: '7,000 RWF',
-    authors: ['Theogene Iradukunda', 'Aline Ingabire'],
+    title: 'SmartStock Release',
+    date: '2026-02-10',
+    location: 'Kigali, Rwanda',
+    description: 'Launch of SmartStock, a flexible stock management system supporting multiple product categories and sales tracking.',
+    image: '/smartstock.png',
+    authors: ['Theogene Iradukunda'],
   },
   {
-    title: 'Networking Essentials Workshop',
-    date: '2025-12-05',
-    time: '14:00 - 18:00',
-    location: 'Online (Zoom)',
-    attendees: 60,
-    maxAttendees: 100,
-    description: 'Explore networking fundamentals and cloud solutions for modern businesses.',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=300&fit=crop',
-    registrationLink: '#',
-    price: 'Free',
+    title: 'StockWise Release',
+    date: '2026-03-05',
+    location: 'Kigali, Rwanda',
+    description: 'Release of StockWise, a stock management system for mixed shops with a simple and user-friendly interface.',
+    image: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?w=600&h=400&fit=crop',
     authors: ['Theogene Iradukunda'],
   },
 ];
 
 const pastEvents = [
   {
-    title: 'Intro to Software Development',
-    date: '2025-01-20',
-    attendees: 50,
-    description: 'A beginner-friendly workshop on coding with JavaScript and Python.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop',
-    authors: ['Theogene Iradukunda', 'Isezerano Roger'],
-  },
-  {
-    title: 'Tech Entrepreneurship Summit',
-    date: '2024-12-10',
-    attendees: 45,
-    description: 'Insights on launching tech startups in Rwanda’s growing ecosystem.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop',
+    title: 'Dieumerci Website Release',
+    date: '2025-09-03',
+    description: 'Launch of the Dieumerci portfolio website, showcasing their projects and company information with a modern design.',
+    image: '/dieumerci.png',
     authors: ['Theogene Iradukunda'],
   },
   {
-    title: 'Mobile App Development Crash Course',
-    date: '2024-11-15',
-    attendees: 35,
-    description: 'Hands-on session on building mobile apps with Flutter and Dart.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop',
-    authors: ['Theogene Iradukunda', 'Didier Niyonzima'],
+    title: 'PixelMart Release',
+    date: '2025-12-26',
+    description: 'Launch of PixelMart, a smart inventory and stock management system for Mr. Faustina’s electronics and LCD business.',
+    image: '/pixelmart.png',
+    authors: ['Theogene Iradukunda'],
+  },
+  {
+    title: 'Open Future Website Release',
+    date: '2028-08-12', // Note: This is far future, but kept as provided
+    description: 'Launch of the Open Future Savings System website, enabling secure member management and monthly savings tracking.',
+    image: '/openfutur.png',
+    authors: ['Theogene Iradukunda'],
   },
 ];
 
 export default function Events() {
   return (
     <div className="min-h-screen">
-      {/* CROSS-REFERENCE: Theogene, this is the Events page for RwandaScratch, complementing the About (artifact_id: 7b8e4f2a-9c1d-4b7a-b2e3-5f6c8a7d3e2f) and Projects (artifact_id: f8d7e6b5-3c2a-4e9b-9a1f-6d4c8b3e2a1d) pages. */}
-      
-      {/* Hero Section */}
       <section className="hero-bg py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
@@ -119,20 +97,11 @@ export default function Events() {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                        {event.price}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {event.attendees}/{event.maxAttendees} registered
-                      </span>
-                    </div>
-                    
                     <h3 className="text-xl font-bold mb-3">{event.title}</h3>
                     <p className="text-muted-foreground mb-4">{event.description}</p>
                     
-                    <div className="space-y-2 mb-6">
-                      <div className="flex items-center text-sm">
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center">
                         <Calendar className="h-4 w-4 text-primary mr-2" />
                         <span>{new Date(event.date).toLocaleDateString('en-US', { 
                           weekday: 'long', 
@@ -141,25 +110,15 @@ export default function Events() {
                           day: 'numeric' 
                         })}</span>
                       </div>
-                      <div className="flex items-center text-sm">
+                      <div className="flex items-center">
                         <MapPin className="h-4 w-4 text-primary mr-2" />
                         <span>{event.location}</span>
                       </div>
-                      <div className="flex items-center text-sm">
-                        <Clock className="h-4 w-4 text-primary mr-2" />
-                        <span>{event.time}</span>
-                      </div>
-                      <div className="flex items-center text-sm">
+                      <div className="flex items-center">
                         <Users className="h-4 w-4 text-primary mr-2" />
                         <span>By: {event.authors.join(', ')}</span>
                       </div>
                     </div>
-
-                    <Button className="w-full" asChild>
-                      <a href={event.registrationLink} target="_blank" rel="noopener noreferrer">
-                        Register Now
-                      </a>
-                    </Button>
                   </div>
                 </div>
               ))}
@@ -180,7 +139,7 @@ export default function Events() {
 
           {pastEvents.length === 0 ? (
             <EmptyState
-              icon={Clock}
+              icon={Calendar}
               title="No Past Events"
               description="RwandaScratch is gearing up for more events. Stay tuned!"
             />
@@ -202,7 +161,11 @@ export default function Events() {
                     <p className="text-muted-foreground text-sm mb-3">{event.description}</p>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">
-                        {new Date(event.date).toLocaleDateString()}
+                        {new Date(event.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
                       </span>
                       <span className="flex items-center">
                         <Users className="h-4 w-4 text-primary mr-1" />
@@ -216,25 +179,6 @@ export default function Events() {
           )}
         </div>
       </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">Stay Updated</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Subscribe to RwandaScratch’s newsletter for updates on upcoming tech workshops and events.
-          </p>
-          <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <Button variant="hero">Subscribe</Button>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 hero-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -242,9 +186,9 @@ export default function Events() {
           <p className="text-xl text-white/90 mb-8">
             Partner with Theogene at theodevrwanda@gmail.com or +250 792 734 752 to organize tech workshops with RwandaScratch.
           </p>
-          <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
-            <a href="/contact">Contact Us</a>
-          </Button>
+          <button className="px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-white/90">
+            Contact Us
+          </button>
         </div>
       </section>
     </div>
