@@ -18,7 +18,6 @@ import Partnerships from "./pages/Partnerships";
 import Testimonials from "./pages/Testimonials";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,8 +30,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            {/* Chat page stays outside the Layout (as before) */}
-            <Route path="/chat" element={<Chat />} />
+            {/* Chat page removed */}
 
             {/* All other routes use the common Layout */}
             <Route

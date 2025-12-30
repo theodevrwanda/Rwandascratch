@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Send, Check } from 'lucide-react';
+import { Send, Check, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { saveWebsiteRequest } from '@/lib/firebase-utils';
 
 const projectTypes = [
   'Business Website',
@@ -37,51 +36,82 @@ export default function RequestWebsite() {
     inspiration: '',
   });
   const { toast } = useToast();
-
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
-    
-    try {
-      const result = await saveWebsiteRequest(formData);
-      
-      if (result.success) {
-        toast({
-          title: "Request Submitted Successfully!",
-          description: "Thank you for your project request. We'll get back to you within 24 hours.",
-        });
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          whatsapp: '',
-          company: '',
-          projectType: '',
-          budget: '',
-          deadline: '',
-          description: '',
-          features: '',
-          inspiration: '',
-        });
-      } else {
-        throw new Error('Failed to submit request');
-      }
-    } catch (error) {
-      console.error('Error submitting request:', error);
+
+    // Basic validation (ensure required fields are filled)
+    if (!formData.name || !formData.email || !formData.projectType || !formData.budget || !formData.description) {
       toast({
-        title: "Submission Failed",
-        description: "There was an error submitting your request. Please try again.",
+        title: "Please fill in all required fields",
+        description: "Name, Email, Project Type, Budget, and Description are required.",
         variant: "destructive",
       });
-    } finally {
-      setSubmitting(false);
+      return;
     }
+
+    setSubmitting(true);
+
+    // Format the WhatsApp message
+    const whatsappMessage = `
+*New Website/Project Request from RwandaScratch*
+
+*Full Name:* ${formData.name}
+*Email:* ${formData.email}
+*WhatsApp Number:* ${formData.whatsapp || 'Not provided'}
+*Company/Organization:* ${formData.company || 'Not provided'}
+
+*Project Type:* ${formData.projectType}
+*Budget Range:* ${formData.budget}
+*Preferred Deadline:* ${formData.deadline || 'Not specified'}
+
+*Project Description:*
+${formData.description}
+
+*Required Features:*
+${formData.features || 'Not specified'}
+
+*Inspiration/Reference Websites:*
+${formData.inspiration || 'Not provided'}
+    `.trim();
+
+    // Encode for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Your WhatsApp number (international format, no + or spaces)
+    const phoneNumber = '250792734752'; // ← Replace with your REAL WhatsApp number!
+
+    // Open WhatsApp
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+
+    // Show success toast
+    toast({
+      title: "Opening WhatsApp...",
+      description: "Your project request is ready to send! We'll reply soon.",
+    });
+
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      whatsapp: '',
+      company: '',
+      projectType: '',
+      budget: '',
+      deadline: '',
+      description: '',
+      features: '',
+      inspiration: '',
+    });
+
+    setSubmitting(false);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -276,12 +306,18 @@ export default function RequestWebsite() {
 
               {/* Submit Button */}
               <div className="text-center">
-                <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto" disabled={submitting}>
-                  <Send className="h-5 w-5 mr-2" />
-                  {submitting ? 'Submitting...' : 'Submit Project Request'}
+                <Button
+                  type="submit"
+                  variant="hero"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  disabled={submitting}
+                >
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  {submitting ? 'Preparing...' : 'Send Request via WhatsApp'}
                 </Button>
                 <p className="text-sm text-muted-foreground mt-4">
-                  We'll review your request and get back to you within 24 hours.
+                  Your request will open in WhatsApp – just hit send!
                 </p>
               </div>
             </form>
@@ -303,23 +339,23 @@ export default function RequestWebsite() {
             {[
               {
                 step: '1',
-                title: 'Review & Contact',
-                description: 'We review your request and contact you within 24 hours to discuss details.',
+                title: 'You Send Request',
+                description: 'Fill the form and send your details directly to our WhatsApp.',
               },
               {
                 step: '2',
-                title: 'Proposal & Quote',
-                description: 'We provide a detailed proposal with timeline and pricing for your project.',
+                title: 'We Review & Reply',
+                description: 'We’ll contact you immediately to discuss details and answer questions.',
               },
               {
                 step: '3',
-                title: 'Development',
-                description: 'Our team begins building your solution with regular updates on progress.',
+                title: 'Proposal & Quote',
+                description: 'We provide a detailed proposal with timeline and pricing.',
               },
               {
                 step: '4',
-                title: 'Launch & Support',
-                description: 'We launch your project and provide ongoing support and maintenance.',
+                title: 'Development & Launch',
+                description: 'We build, test, and launch your project with ongoing support.',
               },
             ].map((item, index) => (
               <div

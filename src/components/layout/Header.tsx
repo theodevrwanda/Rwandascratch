@@ -4,7 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Menu, X, Code, MessageCircle } from 'lucide-react';
 
-const navigation = [
+interface NavigationItem {
+  name: string;
+  href: string;
+  isMobileOnly?: boolean;
+}
+
+const navigation: NavigationItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Projects', href: '/projects' },
@@ -12,7 +18,8 @@ const navigation = [
   { name: 'Events', href: '/events' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Chat', href: '/chat', isMobileOnly: true },
+  { name: 'Contact', href: '/contact' },
+  // { name: 'Chat', href: '/chat', isMobileOnly: true }, // Removed Chat from here
 ];
 
 export function Header() {
@@ -35,11 +42,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-lg shadow-lg border-b border-border/50'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-background/80 backdrop-blur-lg shadow-lg border-b border-border/50'
+        : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
@@ -65,11 +71,10 @@ export function Header() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-accent hover:text-accent-foreground ${
-                    location.pathname === item.href
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground'
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-accent hover:text-accent-foreground ${location.pathname === item.href
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-foreground'
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -81,12 +86,6 @@ export function Header() {
             <ThemeToggle />
             <Button variant="outline" size="sm" asChild>
               <Link to="/request-website">Request Website</Link>
-            </Button>
-            <Button variant="hero" size="sm" asChild>
-              <Link to="/chat">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                Chat
-              </Link>
             </Button>
           </div>
 
@@ -112,11 +111,10 @@ export function Header() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    location.pathname === item.href
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground hover:bg-accent hover:text-accent-foreground'
-                  }`}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${location.pathname === item.href
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-foreground hover:bg-accent hover:text-accent-foreground'
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -124,12 +122,6 @@ export function Header() {
               <div className="pt-4 space-y-2">
                 <Button variant="outline" size="sm" className="w-full" asChild>
                   <Link to="/request-website">Request Website</Link>
-                </Button>
-                <Button variant="hero" size="sm" className="w-full" asChild>
-                  <Link to="/chat">
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    Chat
-                  </Link>
                 </Button>
               </div>
             </div>

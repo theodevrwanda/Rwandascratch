@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { sendEmail } from '@/lib/emailjs';
-import { saveContactMessage } from '@/lib/firebase-utils';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,101 +13,127 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-
-    try {
-      // Send email using EmailJS
-      const emailResult = await sendEmail({
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'theodevrwanda@gmail.com'
-      });
-
-      // Save to Firebase
-      const saveResult = await saveContactMessage(formData);
-
-      if (emailResult.success && saveResult.success) {
-        toast({
-          title: "Message Sent Successfully!",
-          description: "Thank you for contacting us. We'll get back to you soon!",
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      toast({
-        title: "Message Failed to Send",
-        description: "There was an error sending your message. Please try again or contact us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setSending(false);
-    }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSendToWhatsApp = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Please fill in all fields",
+        description: "All fields are required to send your message.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSending(true);
+
+    // Format the message for WhatsApp
+    const whatsappMessage = `
+Message from RwandaScratch Contact Form
+
+ Name: ${formData.name}  
+ Email: ${formData.email}  
+ Subject: ${formData.subject}
+
+Message: 
+${formData.message}
+    `.trim();
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Your WhatsApp number (change to your actual number with country code, no + or spaces)
+    const phoneNumber = '250792734752'; 
+
+    // WhatsApp link
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp (mobile will open app, desktop will open web)
+    window.open(whatsappUrl, '_blank');
+
+    // Show success toast
+    toast({
+      title: "Opening WhatsApp...",
+      description: "Your message is ready to send via WhatsApp. We'll reply soon!",
+    });
+
+    // Reset form
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setSending(false);
   };
 
   return (
     <div className="min-h-screen">
       <section className="hero-bg py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">Contact Us</h1>
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+            Contact Us
+          </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
             Get in touch with us to discuss your project or learn more about our services.
           </p>
         </div>
       </section>
-      
+
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
             <div className="animate-fade-in">
               <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <MapPin className="h-6 w-6 text-primary mr-4 mt-1" />
-                  <div>
-                    <h3 className="font-semibold mb-1">Address</h3>
-                    <p className="text-muted-foreground">Kigali, Rwanda<br />KG 9 Ave, Nyarugenge</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
                   <Phone className="h-6 w-6 text-primary mr-4 mt-1" />
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-muted-foreground">+250 788 123 456</p>
+                    <h3 className="font-semibold mb-1">Phone / WhatsApp</h3>
+                    <p className="text-muted-foreground">+250 792 734 752</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <Mail className="h-6 w-6 text-primary mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">hello@rwandascratch.com</p>
+                    <p className="text-muted-foreground">
+                      theodevrwanda@gmail.com<br />
+                      <span className="text-sm">(or)</span> rwandascratch@gmail.com
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <Clock className="h-6 w-6 text-primary mr-4 mt-1" />
                   <div>
-                    <h3 className="font-semibold mb-1">Business Hours</h3>
-                    <p className="text-muted-foreground">Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 2:00 PM</p>
+                    <h3 className="font-semibold mb-1">Availability</h3>
+                    <p className="text-muted-foreground">
+                      Monday - Friday: 8:00 AM - 6:00 PM<br />
+                      Saturday: 9:00 AM - 2:00 PM<br />
+                      <span className="text-sm">We work fully online from Rwanda</span>
+                    </p>
                   </div>
                 </div>
               </div>
+              <p className="mt-8 text-muted-foreground italic">
+                RwandaScratch is a fully remote/online service. We deliver professional web and software solutions from anywhere in Rwanda.
+              </p>
             </div>
 
+            {/* Contact Form → WhatsApp */}
             <div className="bg-gradient-card p-8 rounded-2xl shadow-lg animate-scale-in">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <h2 className="text-2xl font-bold mb-6 text-center">
+                Send Us a Message on WhatsApp
+              </h2>
+              <form onSubmit={handleSendToWhatsApp} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Name *</label>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Name *
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -121,7 +145,9 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email *</label>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email *
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -134,7 +160,9 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject *</label>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    Subject *
+                  </label>
                   <input
                     type="text"
                     id="subject"
@@ -146,7 +174,9 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">Message *</label>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message *
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -157,9 +187,14 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <Button type="submit" variant="hero" className="w-full" disabled={sending}>
-                  <Send className="h-4 w-4 mr-2" />
-                  {sending ? 'Sending...' : 'Send Message'}
+                <Button
+                  type="submit"
+                  variant="hero"
+                  className="w-full"
+                  disabled={sending}
+                >
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  {sending ? 'Preparing...' : 'Send via WhatsApp'}
                 </Button>
               </form>
             </div>

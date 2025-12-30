@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Globe, Smartphone, Code, Users, Palette, Lightbulb, Check, Star, ShoppingCart, BookOpen, Heart, Camera, Briefcase } from 'lucide-react';
+import React from 'react';
+import { Globe, Code, Palette, Lightbulb, Check, Star, ShoppingCart, BookOpen, Heart, Camera, Briefcase ,Users} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { EmptyState } from '@/components/EmptyState';
-import { SEOHelmet } from '@/components/SEOHelmet';
-import api  from '@/lib/api';
-import { Service } from '@/types';
 import servicesBg from '@/assets/services-bg.jpg';
 
 const services = [
@@ -182,26 +178,6 @@ const pricingPlans = [
 ];
 
 export default function Services() {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchServices();
-  }, []);
-
-  const fetchServices = async () => {
-    try {
-      const response = await api.getServices();
-      if (response.success && response.data) {
-        setServices(response.data);
-      }
-    } catch (error) {
-      console.error('Error fetching services:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -258,7 +234,7 @@ export default function Services() {
             {websiteTypes.map((type, index) => (
               <div
                 key={type.name}
-                className={`bg-gradient-card p-6 rounded-2xl shadow-lg hover-lift ${
+                className={`bg-gradient-card p-6 rounded-2xl shadow-lg hover-lift relative ${
                   type.popular ? 'ring-2 ring-primary transform scale-105' : ''
                 }`}
                 data-aos="flip-up"
@@ -302,54 +278,6 @@ export default function Services() {
                 >
                   <Link to="/request-website">Choose This Plan</Link>
                 </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 bg-secondary/30" data-aos="fade-up" data-aos-duration="1000">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 
-              className="text-3xl lg:text-4xl font-bold mb-4"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              What We Offer
-            </h2>
-            <p 
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              From web development to tech education, we provide end-to-end solutions for your digital needs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="bg-gradient-card p-8 rounded-2xl shadow-lg hover-lift"
-                data-aos="flip-left"
-                data-aos-delay={index * 100}
-                data-aos-duration="800"
-              >
-                <div className="bg-gradient-primary p-4 rounded-full w-16 h-16 mb-6 flex items-center justify-center">
-                  <service.icon className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center">
-                      <Check className="h-5 w-5 text-primary mr-2" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -496,11 +424,11 @@ export default function Services() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
               <Link to="/request-website">Request a Quote</Link>
             </Button>
             <Button variant="glass" size="lg" asChild>
-              <Link to="/contact">Schedule a Call</Link>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>
