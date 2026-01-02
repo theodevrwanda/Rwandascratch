@@ -18,8 +18,6 @@ const navigation: NavigationItem[] = [
   { name: 'Events', href: '/events' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Contact', href: '/contact' },
-  // { name: 'Chat', href: '/chat', isMobileOnly: true }, // Removed Chat from here
 ];
 
 export function Header() {

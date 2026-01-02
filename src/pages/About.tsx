@@ -29,15 +29,17 @@ const values = [
 
 const aboutData = {
   story: `
-    RwandaScratch was founded by Theogene Iradukunda with a vision to transform how businesses operate through digital innovation. What began as a passion-driven initiative has grown into a technology company focused on helping businesses fully transition into the digital world. RwandaScratch builds custom software solutions, digital platforms, graphic designs, and reliable systems that allow businesses to manage their operations independently, efficiently, and securely.
-
-    We focus on enabling businesses to launch and run their own online services without relying on third-party platforms or external providers. By creating direct digital connections between businesses and their clients, we simplify daily operations, improve accessibility, and support long-term growth. RwandaScratch also collaborates with innovative developers and creators to build scalable, future-ready solutions that meet real-world business needs.
+    <strong>RwandaScratch</strong> is a Rwanda-based <strong>software development and open-source technology company</strong> focused on building <strong>modern, scalable, and affordable digital solutions</strong> for businesses, startups, and institutions across Rwanda and Africa.
+    <br/><br/>
+    We design and develop <strong>inventory and stock management systems</strong>, business dashboards, custom web and mobile applications, and open-source tools that help organizations <strong>reduce operational errors, improve efficiency, gain real-time insights, and grow sustainably</strong>.
+    <br/><br/>
+    RwandaScratch combines <strong>modern technologies</strong> with a deep understanding of local business needs, delivering practical systems that solve real-world challenges in African markets.
   `,
   mission: `
-    Our mission is to transform business operations by making digital solutions accessible, independent, and easy to use. We empower businesses to own their technology, connect directly with their clients, simplify daily workflows, and operate more efficiently through innovative software and digital services.
+    To empower businesses in Rwanda and across Africa with <strong>reliable, affordable, and intelligent software solutions</strong> that drive productivity, transparency, and data-driven growth.
   `,
   vision: `
-    Our vision is to build a digitally empowered ecosystem where businesses operate seamlessly online, technology is locally driven and globally competitive, and innovation thrives through collaboration with forward-thinking developers and creators.
+    To become a <strong>leading African software and open-source technology company</strong>, building world-class digital products from Rwanda for global impact.
   `,
 };
 
@@ -47,7 +49,7 @@ const testimonials = [
     name: 'Mr. Faustina',
     role: 'Owner, Private Business',
     serviceType: 'Business Management System',
-    link: 'https://pixelmartrw.pages.dev', 
+    link: 'https://pixelmartrw.pages.dev',
     content: 'RwandaScratch developed a comprehensive management system for my business. Managing products, branches, and employees has never been easier!',
     avatar: '/faustin.jpg',
   },
@@ -82,7 +84,7 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
+      <section
         className="py-20 lg:py-32 relative overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.8) 50%, rgba(30, 41, 59, 0.9) 100%), url(${aboutBg})`,
@@ -94,14 +96,14 @@ export default function About() {
         data-aos-duration="1200"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 
+          <h1
             className="text-4xl lg:text-6xl font-bold text-white mb-6"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             About RwandaScratch
           </h1>
-          <p 
+          <p
             className="text-xl text-white/90 max-w-3xl mx-auto"
             data-aos="fade-up"
             data-aos-delay="400"
@@ -117,7 +119,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Story</h2>
-              <div 
+              <div
                 className="text-lg text-muted-foreground mb-8"
                 dangerouslySetInnerHTML={{ __html: aboutData.story }}
               />
@@ -145,7 +147,7 @@ export default function About() {
                 <Target className="h-8 w-8 text-primary mr-3" />
                 <h3 className="text-2xl font-bold">Our Mission</h3>
               </div>
-              <div 
+              <div
                 className="text-lg text-muted-foreground"
                 dangerouslySetInnerHTML={{ __html: aboutData.mission }}
               />
@@ -155,7 +157,7 @@ export default function About() {
                 <Eye className="h-8 w-8 text-primary mr-3" />
                 <h3 className="text-2xl font-bold">Our Vision</h3>
               </div>
-              <div 
+              <div
                 className="text-lg text-muted-foreground"
                 dangerouslySetInnerHTML={{ __html: aboutData.vision }}
               />
@@ -212,7 +214,7 @@ export default function About() {
                 >
                   <Quote className="h-10 w-10 text-primary/20 mb-6" />
                   <p className="text-lg text-muted-foreground mb-8 italic">"{testimonial.content}"</p>
-                  
+
                   <div className="flex items-center gap-4 mb-4">
                     <img
                       src={testimonial.avatar}
@@ -225,7 +227,7 @@ export default function About() {
                       <p className="text-sm text-primary font-medium">{testimonial.serviceType}</p>
                     </div>
                   </div>
-                  
+
                   {testimonial.link && (
                     <Button variant="link" className="p-0 h-auto" asChild>
                       <Link to={testimonial.link} className="flex items-center gap-2 text-primary">
@@ -252,6 +254,44 @@ export default function About() {
               animation-play-state: paused;
             }
           `}</style>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Leadership</h2>
+          </div>
+          <div className="max-w-4xl mx-auto bg-gradient-card p-8 lg:p-12 rounded-2xl shadow-lg border border-primary/10">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="w-48 h-48 lg:w-64 lg:h-64 flex-shrink-0">
+                <img
+                  src="/theodev.png"
+                  alt="Théogène Iradukunda"
+                  className="w-full h-full rounded-2xl object-cover shadow-xl"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-2">Théogène Iradukunda</h3>
+                <p className="text-primary font-semibold text-lg mb-6">Founder & CEO</p>
+                <div className="text-lg text-muted-foreground space-y-4">
+                  <p>
+                    <strong>Théogène Iradukunda</strong> is the <strong>Founder and CEO of RwandaScratch</strong>,
+                    a software engineer and technology entrepreneur passionate about
+                    <strong>open-source innovation and digital transformation in Africa</strong>.
+                  </p>
+                  <p>
+                    He leads RwandaScratch’s vision, product development, and technical strategy, with
+                    hands-on experience in building <strong>inventory management systems, business analytics platforms,
+                      and scalable digital tools</strong>. Under his leadership, RwandaScratch has helped multiple
+                    businesses improve <strong>stock control, operational efficiency, and financial visibility</strong>
+                    through smart software solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
