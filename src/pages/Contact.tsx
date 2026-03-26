@@ -36,7 +36,7 @@ export default function Contact() {
 
     // Format the message for WhatsApp
     const whatsappMessage = `
-Message from RwandaScratch Contact Form
+Message from NeoScratch Contact Form
 
  Name: ${formData.name}  
  Email: ${formData.email}  
@@ -71,12 +71,13 @@ ${formData.message}
 
   return (
     <div className="min-h-screen">
-      <section className="hero-bg py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 hero-bg pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">
             Contact Us
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Get in touch with us to discuss your project or learn more about our services.
           </p>
         </div>
@@ -102,7 +103,7 @@ ${formData.message}
                     <h3 className="font-semibold mb-1">Email</h3>
                     <p className="text-muted-foreground">
                       theodevrwanda@gmail.com<br />
-                      <span className="text-sm">(or)</span> rwandascratch@gmail.com
+                      <span className="text-sm">(or)</span> neoscratch@gmail.com
                     </p>
                   </div>
                 </div>
@@ -119,7 +120,7 @@ ${formData.message}
                 </div>
               </div>
               <p className="mt-8 text-muted-foreground italic">
-                RwandaScratch is a fully remote/online service. We deliver professional web and software solutions from anywhere in Rwanda.
+                NeoScratch is a fully remote/online service. We deliver professional web and software solutions from anywhere in Rwanda.
               </p>
             </div>
 

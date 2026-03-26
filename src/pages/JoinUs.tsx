@@ -86,12 +86,13 @@ export default function JoinUs() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-bg py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 hero-bg pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">
             Join Our Team
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Be part of Rwanda's leading tech innovation company and help us build the future of technology in Africa.
           </p>
         </div>
@@ -101,7 +102,7 @@ export default function JoinUs() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Why Join RwandaScratch?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Why Join NeoScratch?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Join a passionate team that's making a real impact in the African tech ecosystem.
             </p>
@@ -306,7 +307,7 @@ export default function JoinUs() {
 
               <div>
                 <label htmlFor="motivation" className="block text-sm font-medium mb-2">
-                  Why do you want to join RwandaScratch? *
+                  Why do you want to join NeoScratch? *
                 </label>
                 <textarea
                   id="motivation"

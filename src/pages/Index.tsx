@@ -16,58 +16,28 @@ const Index = () => {
     <div className="min-h-screen">
 
       
-      {/* Hero Section */}
-<section 
-  className="py-20 lg:py-32 relative overflow-hidden"
-  style={{
-    backgroundImage: `linear-gradient(135deg, rgba(109, 110, 111, 0) 0%, rgba(5, 24, 73, 0.3) 50%, rgba(2, 36, 102, 1) 100%), url(${heroBackground})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed'
-  }}
-  data-aos="zoom-in"
-  data-aos-duration="1200"
->
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="text-center">
-      <h1 
-        className="text-4xl lg:text-7xl font-bold text-white mb-6"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        Take Your Business go
-        <span 
-          className="block text-gradient bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          Digital & Beyond
-        </span>
-      </h1>
-      <p 
-        className="text-xl text-white/90 max-w-3xl mx-auto mb-8"
-        data-aos="fade-up"
-        data-aos-delay="600"
-      >
-        Welcome to RwandaScratch — your partner in transforming ideas into smart, scalable, and cutting-edge tech solutions. From innovative software to professional design, digital marketing, and tech education, we help businesses thrive in the digital era.
-      </p>
-      <div 
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-        data-aos="fade-up"
-        data-aos-delay="800"
-      >
-        <Button variant="hero" size="xl" asChild>
-          <Link to="/request-website">
-            Get Started <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
-        <Button variant="glass" size="xl" asChild>
-          <Link to="/about">Learn More</Link>
-        </Button>
+    {/* Hero Section */}
+    <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
+      <div className="absolute inset-0 hero-bg pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 animate-fade-in">
+          Take Your Business <span className="block text-gradient">Digital & Beyond</span>
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-slide-up leading-relaxed">
+          Welcome to NeoScratch — your partner in transforming ideas into smart, scalable, and cutting-edge tech solutions. From innovative software to professional design and digital marketing, we help businesses thrive.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <Button size="xl" className="bg-primary text-primary-foreground hover:bg-primary-dark rounded-full px-8 shadow-sm hover:shadow-md transition-all" asChild>
+            <Link to="/request-website">
+              Get Started <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button variant="outline" size="xl" className="rounded-full px-8 border-border hover:bg-secondary transition-all" asChild>
+            <Link to="/about">Learn More</Link>
+          </Button>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
       {/* Features Section */}
@@ -162,24 +132,24 @@ const Index = () => {
 
       {/* CTA Section */}
       <section 
-        className="py-20 hero-bg"
+        className="py-24 relative overflow-hidden bg-background"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 
-            className="text-3xl lg:text-4xl font-bold text-white mb-6"
+            className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-6"
             data-aos="fade-up"
             data-aos-delay="100"
           >
             Ready to Start Your Project?
           </h2>
           <p 
-            className="text-xl text-white/90 mb-8"
+            className="text-xl text-muted-foreground mb-8"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Contact us at rwandascratch@gmail.com or +250 792 734 752 to bring your tech vision to life with RwandaScratch’s expanded services.
+            Contact us at neoscratch@gmail.com or +250 792 734 752 to bring your tech vision to life with NeoScratch’s expanded services.
           </p>
           <div 
             className="flex flex-col sm:flex-row gap-4 justify-center"

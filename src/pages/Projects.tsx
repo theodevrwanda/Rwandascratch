@@ -82,31 +82,12 @@ export default function Projects() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
-        className="py-20 lg:py-32 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.8) 50%, rgba(30, 41, 59, 0.9) 100%), url(${projectsBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-        data-aos="zoom-in"
-        data-aos-duration="1200"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 
-            className="text-4xl lg:text-6xl font-bold text-white mb-6"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Our Projects
-          </h1>
-          <p 
-            className="text-xl text-white/90 max-w-3xl mx-auto"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            Explore RwandaScratch's innovative solutions in software development, graphic design, and networking, empowering Rwanda and Africa.
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 hero-bg pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 animate-fade-in">Our Projects</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
+            Explore NeoScratch's innovative solutions in software development, graphic design, and networking, empowering Rwanda and Africa.
           </p>
         </div>
       </section>
@@ -239,7 +220,7 @@ export default function Projects() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">Have a Project Idea?</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Contact Theogene at theodevrwanda@gmail.com or +250 792 734 752 to bring your vision to life with RwandaScratch.
+            Contact Theogene at theodevrwanda@gmail.com or +250 792 734 752 to bring your vision to life with NeoScratch.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="lg" asChild>

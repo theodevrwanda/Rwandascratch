@@ -55,7 +55,7 @@ export default function RequestWebsite() {
 
     // Format the WhatsApp message
     const whatsappMessage = `
-*New Website/Project Request from RwandaScratch*
+*New Website/Project Request from NeoScratch*
 
 *Full Name:* ${formData.name}
 *Email:* ${formData.email}
@@ -121,12 +121,13 @@ ${formData.inspiration || 'Not provided'}
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-bg py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 hero-bg pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">
             Request a Website
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Tell us about your project and we'll create a custom solution that brings your vision to life.
           </p>
         </div>
