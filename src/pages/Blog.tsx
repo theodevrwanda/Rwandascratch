@@ -55,12 +55,12 @@ export default function Blog() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-bg py-20 lg:py-32">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">
             NeoScratch Blog
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Insights, tutorials, and tips on software development, graphic design, and tech education from NeoScratch.
           </p>
         </div>
@@ -118,10 +118,10 @@ export default function Blog() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 hero-bg">
+      <section className="py-24 relative overflow-hidden bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Contribute to Our Blog</h2>
-          <p className="text-xl text-white/90 mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-6">Contribute to Our Blog</h2>
+          <p className="text-xl text-muted-foreground mb-8">
             Share your tech insights with NeoScratch! Contact Theogene at theodevrwanda@gmail.com or +250 792 734 752.
           </p>
           <button className="px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-white/90">

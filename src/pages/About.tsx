@@ -84,31 +84,12 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section
-        className="py-20 lg:py-32 relative overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.8) 50%, rgba(30, 41, 59, 0.9) 100%), url(${aboutBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-        data-aos="zoom-in"
-        data-aos-duration="1200"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1
-            className="text-4xl lg:text-6xl font-bold text-white mb-6"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            About NeoScratch
-          </h1>
-          <p
-            className="text-xl text-white/90 max-w-3xl mx-auto"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            We're a youth-led tech company transforming Rwanda and Africa through software development, graphic design, and networking solutions.
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 hero-bg pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 animate-fade-in">About NeoScratch</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
+            We're a tech company transforming Rwanda and Africa through software development, graphic design, and networking solutions.
           </p>
         </div>
       </section>
@@ -128,11 +109,13 @@ export default function About() {
               </Button>
             </div>
             <div className="animate-scale-in">
-              <img
-                src="/theodev.png"
-                alt="Team collaboration"
-                className="rounded-2xl shadow-2xl hover-lift"
-              />
+              <div className="relative aspect-square w-full max-w-md mx-auto rounded-3xl overflow-hidden glass shadow-xl flex items-center justify-center bg-white p-8">
+                <img
+                  src="/neoscratch.png"
+                  alt="NeoScratch Logo"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>

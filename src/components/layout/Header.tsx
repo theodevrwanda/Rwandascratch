@@ -52,7 +52,7 @@ export function Header() {
             to="/"
             className="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300"
           >
-            <img src="/logo.png" className="h-8 md:h-10 mix-blend-multiply dark:invert dark:mix-blend-screen" alt="NeoScratch Logo" />
+            <img src="/neoscratch.png" className="h-8 md:h-10 mix-blend-multiply dark:invert dark:mix-blend-screen" alt="NeoScratch Logo" />
           </Link>
 
           {/* Desktop Navigation */}

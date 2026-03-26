@@ -194,14 +194,14 @@ export default function Services() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 
-            className="text-4xl lg:text-6xl font-bold text-white mb-6"
+            className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             Our Services
           </h1>
           <p 
-            className="text-xl text-white/90 max-w-3xl mx-auto"
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
             data-aos="fade-up"
             data-aos-delay="400"
           >
@@ -400,20 +400,20 @@ export default function Services() {
 
       {/* CTA Section */}
       <section 
-        className="py-20 hero-bg"
+        className="py-24 relative overflow-hidden bg-background"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 
-            className="text-3xl lg:text-4xl font-bold text-white mb-6"
+            className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-6"
             data-aos="fade-up"
             data-aos-delay="100"
           >
             Ready to Get Started?
           </h2>
           <p 
-            className="text-xl text-white/90 mb-8"
+            className="text-xl text-muted-foreground mb-8"
             data-aos="fade-up"
             data-aos-delay="200"
           >

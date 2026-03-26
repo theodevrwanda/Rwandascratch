@@ -121,12 +121,12 @@ ${formData.inspiration || 'Not provided'}
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-bg py-20 lg:py-32">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">
             Request a Website
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Tell us about your project and we'll create a custom solution that brings your vision to life.
           </p>
         </div>

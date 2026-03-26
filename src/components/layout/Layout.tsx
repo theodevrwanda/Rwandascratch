@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { FloatingChat } from '@/components/FloatingChat';
-import { StarCursor } from '@/components/StarCursor';
+
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -32,7 +32,6 @@ export function Layout({ children }: LayoutProps) {
       </main>
       <Footer />
       <FloatingChat />
-      <StarCursor />
     </div>
   );
 }

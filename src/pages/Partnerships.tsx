@@ -13,10 +13,10 @@ const partners = [
 export default function Partnerships() {
   return (
     <div className="min-h-screen">
-      <section className="hero-bg py-20 lg:py-32">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">Partnerships</h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">Partnerships</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Building stronger communities through strategic partnerships and collaborations.
           </p>
         </div>
@@ -39,10 +39,10 @@ export default function Partnerships() {
         </div>
       </section>
       
-      <section className="py-20 hero-bg">
+      <section className="py-24 relative overflow-hidden bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Become a Partner</h2>
-          <p className="text-xl text-white/90 mb-8">Join us in empowering the next generation of African tech leaders.</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-6">Become a Partner</h2>
+          <p className="text-xl text-muted-foreground mb-8">Join us in empowering the next generation of African tech leaders.</p>
           <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
             <Link to="/contact">Partner With Us</Link>
           </Button>

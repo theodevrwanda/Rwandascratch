@@ -71,12 +71,12 @@ ${formData.message}
 
   return (
     <div className="min-h-screen">
-      <section className="hero-bg py-20 lg:py-32">
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+          <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 animate-fade-in">
             Contact Us
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
             Get in touch with us to discuss your project or learn more about our services.
           </p>
         </div>
